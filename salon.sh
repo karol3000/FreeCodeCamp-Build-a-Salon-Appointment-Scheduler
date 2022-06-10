@@ -54,6 +54,8 @@ MAIN_MENU () {
   else
     echo -e "$(echo "I have put you down for a $SERVICE_NAME at $SERVICE_TIME, $CUSTOMER_NAME" | sed -r 's/ +/ /g')."
   fi
+
+  exit 0
 }
 
 echo -e "\nWelcome to My Salon, how can I help you?\n"

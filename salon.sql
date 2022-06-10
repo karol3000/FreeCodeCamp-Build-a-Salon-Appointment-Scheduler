@@ -51,7 +51,7 @@ CREATE TABLE public.appointments (
     appointment_id integer NOT NULL,
     customer_id integer,
     service_id integer,
-    "time" time without time zone NOT NULL
+    "time" character varying(8) NOT NULL
 );
 
 
@@ -173,12 +173,18 @@ ALTER TABLE ONLY public.services ALTER COLUMN service_id SET DEFAULT nextval('pu
 -- Data for Name: appointments; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.appointments VALUES (1, 2, 2, '11am');
+INSERT INTO public.appointments VALUES (4, 5, 1, '');
+INSERT INTO public.appointments VALUES (9, 2, 1, '12am');
+INSERT INTO public.appointments VALUES (12, 5, 1, '');
 
 
 --
 -- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.customers VALUES (2, '555-555-5555', 'Fabio');
+INSERT INTO public.customers VALUES (5, '', '');
 
 
 --
@@ -188,27 +194,28 @@ ALTER TABLE ONLY public.services ALTER COLUMN service_id SET DEFAULT nextval('pu
 INSERT INTO public.services VALUES (1, 'Haircut');
 INSERT INTO public.services VALUES (2, 'Nails');
 INSERT INTO public.services VALUES (3, 'Eyebrows');
+INSERT INTO public.services VALUES (4, 'Style');
 
 
 --
 -- Name: appointments_appointment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 1, false);
+SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 16, true);
 
 
 --
 -- Name: customers_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.customers_customer_id_seq', 1, false);
+SELECT pg_catalog.setval('public.customers_customer_id_seq', 13, true);
 
 
 --
 -- Name: services_service_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.services_service_id_seq', 3, true);
+SELECT pg_catalog.setval('public.services_service_id_seq', 4, true);
 
 
 --
@@ -262,4 +269,3 @@ ALTER TABLE ONLY public.appointments
 --
 -- PostgreSQL database dump complete
 --
-
